@@ -1,0 +1,57 @@
+﻿<Window x:Class="Coursework.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Napier Bank Messaging" Height="600" Width="800">
+
+    <Grid>
+        <!-- Define the columns -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Column 1: Message Input -->
+        <GroupBox Grid.Column="0" Header="Message Input">
+            <StackPanel Margin="10">
+                <!-- Message Header Input with Placeholder -->
+                <Grid Margin="0,0,0,10">
+                    <TextBox Name="MessageHeaderInput" Background="Transparent" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus"/>
+                    <Label Content="Enter Message Header" Foreground="Gray" IsHitTestVisible="False" Name="MessageHeaderPlaceholder" />
+                </Grid>
+
+                <!-- Message Body Input with Placeholder -->
+                <Grid Height="200" Margin="0,0,0,10">
+                    <TextBox Name="MessageBodyInput" AcceptsReturn="True" Background="Transparent" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus"/>
+                    <Label Content="Enter Message Body" Foreground="Gray" IsHitTestVisible="False" Name="MessageBodyPlaceholder" VerticalAlignment="Top" />
+                </Grid>
+
+                <Button Content="Process Message" Width="150" HorizontalAlignment="Center"/>
+                <Button Content="Load from File" Width="150" HorizontalAlignment="Center" Margin="0,10,0,0"/>
+            </StackPanel>
+        </GroupBox>
+
+        <!-- Column 2: Processed Message & Feedback -->
+        <GroupBox Grid.Column="1" Header="Processed Message and Feedback">
+            <StackPanel Margin="10">
+                <TextBox Name="ProcessedMessageOutput" Height="200" IsReadOnly="True" Margin="0,0,0,10"/>
+                <TextBlock Name="FeedbackMessage" Text="Feedback will appear here" Foreground="Red" TextWrapping="Wrap"/>
+            </StackPanel>
+        </GroupBox>
+
+        <!-- Column 3: Lists (Trending, Mentions, SIR) -->
+        <GroupBox Grid.Column="2" Header="Lists">
+            <TabControl Margin="10">
+                <TabItem Header="Trending">
+                    <ListBox Name="TrendingList"/>
+                </TabItem>
+                <TabItem Header="Mentions">
+                    <ListBox Name="MentionsList"/>
+                </TabItem>
+                <TabItem Header="SIR">
+                    <ListBox Name="SIRList"/>
+                </TabItem>
+            </TabControl>
+        </GroupBox>
+    </Grid>
+</Window>
